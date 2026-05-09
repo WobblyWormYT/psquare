@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artwork — PSquare Art Gallery</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><a href="index.html"><img src="images/logo.jpg" alt="PSquare Art Gallery"></a></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="artists.html">Artists</a></li>
+      <li><a href="exhibition.html">Exhibition</a></li>
+      <li><a href="tickets.html">Tickets</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="auth.html" class="nav-auth-link">Login</a></li>
+    </ul>
+    <a href="cart.html" class="cart-nav-link">🛒 <span class="cart-badge">0</span></a>
+  </nav>
+  <div class="page-container">
+    <p style="margin-bottom:24px;"><a href="gallery.html" style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:1px;">← Back to Gallery</a></p>
+    <div class="details-container">
+      <div class="details-img-wrap">
+        <img id="artImage" src="" alt="Artwork">
+      </div>
+      <div class="details-text">
+        <h1 id="artTitle" style="min-height:40px;"></h1>
+        <p class="artist-label" id="artArtist"></p>
+        <div class="details-meta">
+          <div class="detail-row"><span class="label">Year</span><span class="value" id="artYear">—</span></div>
+          <div class="detail-row"><span class="label">Medium</span><span class="value" id="artMedium">—</span></div>
+          <div class="detail-row"><span class="label">Origin</span><span class="value" id="artOrigin">—</span></div>
+        </div>
+        <p class="details-desc" id="artDesc"></p>
+        <div class="details-actions">
+          <button id="addToCartBtn" class="btn btn-primary"
+                  data-id="" data-source="db" data-title="" data-image="">
+            🛒 Add Print to Cart — ₹299
+          </button>
+          <a href="gallery.html" class="btn">← Back</a>
+        </div>
+        <div class="avg-rating-bar" style="margin-top:28px;">
+          <div class="avg-rating-number" id="avgRating">—</div>
+          <div>
+            <div class="avg-stars" id="avgStars">☆☆☆☆☆</div>
+            <div class="review-count" id="reviewCount">(0 reviews)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-section">
+      <h2>Visitor Reviews</h2>
+      <div class="section-divider">Leave a Review</div>
+      <div class="review-form">
+        <h3>Share your thoughts on this artwork</h3>
+        <div class="form-group"><label>Your Name</label><input type="text" id="reviewName" placeholder="Enter your name"></div>
+        <div class="form-group">
+          <label>Your Rating</label>
+          <div class="stars-input" id="starsInput"></div>
+          <input type="hidden" id="selectedRating" value="0">
+        </div>
+        <div class="form-group"><label>Your Review</label><textarea id="reviewText" rows="4" placeholder="What did you think of this artwork?"></textarea></div>
+        <button id="submitReview" class="btn btn-primary">Submit Review</button>
+      </div>
+      <div id="reviewsList"></div>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/jquery-features.js"></script>
+</body>
+</html>

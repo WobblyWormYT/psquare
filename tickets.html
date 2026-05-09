@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Tickets — PSquare Art Gallery</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><a href="index.html"><img src="images/logo.jpg" alt="PSquare Art Gallery"></a></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="artists.html">Artists</a></li>
+      <li><a href="exhibition.html">Exhibition</a></li>
+      <li><a href="tickets.html" class="active">Tickets</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="auth.html" class="nav-auth-link">Login</a></li>
+    </ul>
+    <a href="cart.html" class="cart-nav-link">🛒 <span class="cart-badge">0</span></a>
+  </nav>
+  <div class="page-container">
+    <div class="page-header">
+      <h1>Ticket Office</h1>
+      <p class="ornament">&#10022; &#10022; &#10022;</p>
+      <p>Book your visit — saved to our MySQL database via AJAX</p>
+    </div>
+    <div class="tickets-layout">
+      <div class="ticket-box">
+        <h2>Book Your Visit</h2>
+        <p class="subtitle">Fill in your details and select ticket types</p>
+        <div class="section-divider">Visitor Details</div>
+        <div class="form-group"><label>Full Name</label><input type="text" id="visitorName" placeholder="Enter your full name"></div>
+        <div class="form-group"><label>Email Address</label><input type="email" id="visitorEmail" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Visit Date</label><input type="date" id="visitDate" style="color-scheme:dark;"></div>
+        <div class="section-divider">Ticket Types</div>
+        <div class="ticket-type-row">
+          <div class="ticket-type-info"><h4>Adult</h4><span class="price-tag">&#8377;150 per person</span></div>
+          <div class="qty-control">
+            <button class="qty-btn" onclick="let v=document.getElementById('adultQty');v.value=Math.max(0,+v.value-1);calculateTotal()">&#8722;</button>
+            <input class="qty-input" type="number" id="adultQty" value="0" min="0" max="20" oninput="calculateTotal()">
+            <button class="qty-btn" onclick="let v=document.getElementById('adultQty');v.value=+v.value+1;calculateTotal()">+</button>
+          </div>
+        </div>
+        <div class="ticket-type-row">
+          <div class="ticket-type-info"><h4>Student</h4><span class="price-tag">&#8377;80 per person</span></div>
+          <div class="qty-control">
+            <button class="qty-btn" onclick="let v=document.getElementById('studentQty');v.value=Math.max(0,+v.value-1);calculateTotal()">&#8722;</button>
+            <input class="qty-input" type="number" id="studentQty" value="0" min="0" max="20" oninput="calculateTotal()">
+            <button class="qty-btn" onclick="let v=document.getElementById('studentQty');v.value=+v.value+1;calculateTotal()">+</button>
+          </div>
+        </div>
+        <div class="ticket-type-row">
+          <div class="ticket-type-info"><h4>Child</h4><span class="price-tag">&#8377;50 per person</span></div>
+          <div class="qty-control">
+            <button class="qty-btn" onclick="let v=document.getElementById('childQty');v.value=Math.max(0,+v.value-1);calculateTotal()">&#8722;</button>
+            <input class="qty-input" type="number" id="childQty" value="0" min="0" max="20" oninput="calculateTotal()">
+            <button class="qty-btn" onclick="let v=document.getElementById('childQty');v.value=+v.value+1;calculateTotal()">+</button>
+          </div>
+        </div>
+        <div class="ticket-type-row">
+          <div class="ticket-type-info"><h4>Senior</h4><span class="price-tag">&#8377;60 per person</span></div>
+          <div class="qty-control">
+            <button class="qty-btn" onclick="let v=document.getElementById('seniorQty');v.value=Math.max(0,+v.value-1);calculateTotal()">&#8722;</button>
+            <input class="qty-input" type="number" id="seniorQty" value="0" min="0" max="20" oninput="calculateTotal()">
+            <button class="qty-btn" onclick="let v=document.getElementById('seniorQty');v.value=+v.value+1;calculateTotal()">+</button>
+          </div>
+        </div>
+        <div class="total-bar">
+          <span class="total-label">Total Amount</span>
+          <span class="total-amount">&#8377;<span id="totalPrice">0</span></span>
+        </div>
+        <button class="btn btn-primary" id="bookBtn" style="width:100%;margin-top:20px;padding:15px;" onclick="bookTickets()">
+          Confirm Booking &amp; Generate Ticket
+        </button>
+      </div>
+      <div class="ticket-info-panel">
+        <h3>Visitor Information</h3>
+        <div class="info-row"><span class="info-icon">&#128205;</span><div><strong>Location</strong>PSquare Art Gallery, Panjim, Goa — 403001</div></div>
+        <div class="info-row"><span class="info-icon">&#128336;</span><div><strong>Gallery Hours</strong>09:00 AM – 5:00 PM, all days</div></div>
+        <div class="info-row"><span class="info-icon">&#128222;</span><div><strong>Contact</strong>+91 98765 43210</div></div>
+        <div class="info-row"><span class="info-icon">&#128140;</span><div><strong>Email</strong>psquaregallery@gmail.com</div></div>
+        <!-- <div class="section-divider" style="margin-top:20px;">How it works</div>
+        <p style="color:var(--text-muted);font-size:15px;line-height:1.8;">
+          When you confirm, the booking is sent via <strong style="color:var(--gold)">JavaScript fetch() AJAX POST</strong>
+          to <code style="color:var(--gold-dark)">api/tickets.php</code>, which saves it to the
+          <code style="color:var(--gold-dark)">ticket_bookings</code> table in MySQL.
+        </p>
+      </div> -->
+    </div>
+  </div>
+  <!-- Ticket Modal -->
+  <div class="modal-overlay" id="ticketModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeTicketModal()">&#10005;</button>
+      <div id="ticketContent"></div>
+      <div class="modal-actions">
+        <button class="btn-print" onclick="printTicket()">&#128424; Print / Download PDF</button>
+        <button class="btn-close-modal" onclick="closeTicketModal()">Close</button>
+      </div>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/jquery-features.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — PSquare Art Gallery</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.jpg" alt="PSquare Art Gallery"></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="artists.html">Artists</a></li>
+      <li><a href="exhibition.html">Exhibition</a></li>
+      <li><a href="tickets.html">Tickets</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="auth.html" class="nav-auth-link">Login</a></li>
+    </ul>
+    <a href="cart.html" class="cart-nav-link">🛒 <span class="cart-badge">0</span></a>
+  </nav>
+
+  <div class="page-container">
+
+    <div class="page-header">
+      <h1>Contact Us</h1>
+      <p class="ornament">✦ ✦ ✦</p>
+      <p>We'd love to hear from you — enquiries, feedback, or group visits</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+
+      <!-- ── AJAX Contact Form (Feature 7) ── -->
+      <div class="ticket-box">
+        <h2>Send an Enquiry</h2>
+        <p class="subtitle">Saved directly to our database via AJAX</p>
+
+        <form id="contactForm" autocomplete="off">
+
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" id="contactName" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" id="contactEmail" placeholder="your@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label>Subject</label>
+            <input type="text" id="contactSubject" placeholder="e.g. Group Visit, Artwork Inquiry…">
+          </div>
+
+          <div class="form-group">
+            <label>Message *</label>
+            <textarea id="contactMessage" rows="5"
+                      placeholder="Write your message here…" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="contactSubmitBtn"
+                  style="width:100%;padding:14px;">
+            Send Message
+          </button>
+
+        </form>
+      </div>
+
+      <!-- Info panel -->
+      <div class="ticket-info-panel">
+        <h3>Get in Touch</h3>
+
+        <div class="info-row">
+          <span class="info-icon">📍</span>
+          <div><strong>Address</strong>PSquare Art Gallery, Panjim, Goa — 403001</div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">📞</span>
+          <div><strong>Phone</strong>+91 98765 43210</div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">📧</span>
+          <div><strong>Email</strong>psquaregallery@gmail.com</div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">🕘</span>
+          <div><strong>Gallery Hours</strong>09:00 AM – 5:00 PM, all days</div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">💬</span>
+          <div><strong>Response Time</strong>We typically respond within 24 hours</div>
+        </div>
+
+        <!-- <div class="section-divider" style="margin-top:24px;">How it works</div>
+        <p style="color:var(--text-muted);font-size:15px;line-height:1.8;">
+          When you submit this form, the enquiry is sent via <strong style="color:var(--gold)">jQuery AJAX</strong>
+          to <code style="color:var(--gold-dark)">api/contact.php</code>, which saves it directly
+          to the <strong style="color:var(--gold)">MySQL</strong> <code>enquiries</code> table
+          in our local database — no page reload required.
+        </p>
+      </div> -->
+
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/jquery-features.js"></script>
+</body>
+</html>

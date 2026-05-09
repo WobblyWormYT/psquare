@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artist Profiles — PSquare Art Gallery</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><a href="index.html"><img src="images/logo.jpg" alt="PSquare Art Gallery"></a></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="artists.html" class="active">Artists</a></li>
+      <li><a href="exhibition.html">Exhibition</a></li>
+      <li><a href="tickets.html">Tickets</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="auth.html" class="nav-auth-link">Login</a></li>
+    </ul>
+    <a href="cart.html" class="cart-nav-link">🛒 <span class="cart-badge">0</span></a>
+  </nav>
+  <div class="page-container">
+    <div class="page-header">
+      <h1>Artist Profiles</h1>
+      <p class="ornament">✦ ✦ ✦</p>
+      <p>Explore works by the great masters — powered by the Art Institute of Chicago</p>
+    </div>
+    <div class="artist-search-bar">
+      <input type="text" id="artistSearchInput" placeholder="Search an artist — e.g. Rembrandt, Picasso…">
+      <button class="btn btn-primary" id="searchArtistBtn">Search</button>
+    </div>
+    <div class="section-divider">Featured Artists</div>
+    <div class="featured-artists" id="featuredArtists"></div>
+    <div class="artist-profile" id="artistProfile">
+      <h2 class="profile-artist-name">Claude Monet</h2>
+      <p class="profile-subtitle">Works from the Art Institute of Chicago open collection</p>
+      <div class="section-divider">Works in Collection</div>
+      <div class="artist-works-grid" id="artistWorks">
+        <div class="loading-spinner">Loading<span class="loading-dots"></span></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/jquery-features.js"></script>
+</body>
+</html>
